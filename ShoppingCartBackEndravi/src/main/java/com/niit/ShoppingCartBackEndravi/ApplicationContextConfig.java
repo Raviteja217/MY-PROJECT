@@ -16,6 +16,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.ShoppingCartBackEndravi.modal.Category;
+import com.niit.ShoppingCartBackEndravi.modal.Product;
+import com.niit.ShoppingCartBackEndravi.modal.Supplier;
+import com.niit.ShoppingCartBackEndravi.modal.User;
 @Configuration
 @ComponentScan("com.niit.ShoppingCartBackEndravi")
 @EnableTransactionManagement
@@ -49,6 +52,9 @@ public class ApplicationContextConfig {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(Category.class);
+		sessionBuilder.addAnnotatedClass(Supplier.class);
+		sessionBuilder.addAnnotatedClass(Product.class);
+		sessionBuilder.addAnnotatedClass(User.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 	@Autowired
